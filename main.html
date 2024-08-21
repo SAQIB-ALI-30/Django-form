@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz Signup</title>
+    <link rel="stylesheet" href="./main.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    justify-content: center;
+}
+
+.welcome-message {
+    margin-bottom: 20px;
+}
+
+.welcome-message h1 {
+    color: #ff6600;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 30px;
+    /* border-radius: 30px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 794px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+    padding-left: 120px;
+}
+
+.form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.password-group .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.button-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+#signup{
+    position:relative;
+    top: 50px;
+}
+#fb{
+    position: relative;
+    top: 128px;
+    left: 120px;
+    width: 48%;
+}
+#google{
+    position: relative;
+    top: 50.5px;
+    width: 48%;
+}
+.login-btn,
+.signup-btn {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    background-color: #963c00;
+}
+
+.facebook-btn {
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.facebook-btn:hover {
+    background-color: #001447;
+}
+
+.google-btn {
+    background-color: #db4437;
+    color: #fff;
+}
+
+.google-btn:hover {
+    background-color: #600a00;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        <h1>🥺Welcome😎</h1>
+    </div>
+    <div class="signup-container">
+        <div class="form-container">
+            <h2>Signup for Daraz</h2>
+            <form action="signup" method="POST">
+                <div class="form-group">
+                    <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Email or Phone Number" required>
+                </div>
+                <div class="form-group password-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">😳</span>
+                </div>
+                <div class="form-group password-group">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">😳</span>
+                </div>
+            </form>
+        </div>
+        <div class="button-container">
+            <button id="signup" type="submit" class="signup-btn">Sign Up</button>
+            <button id="fb" type="button" class="facebook-btn">Sign Up with Facebook</button>
+            <button id="google" type="button" class="google-btn">Sign Up with Google</button>
+        </div>
+    </div>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordFields = document.querySelectorAll('.password-group input');
+            const eyeIcons = document.querySelectorAll('.toggle-password');
+            passwordFields.forEach((passwordField, index) => {
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcons[index].textContent = '🙄';
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcons[index].textContent = '😳';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
